@@ -3,7 +3,7 @@ function lowerCaseDrivers(drivers){
   return drivers.map(function(name) {return name.toLowerCase()})
 }
 
-
+/* these two also work
 function nameToAttributes(drivers){
   const newArr = []
   for(const fullname of drivers){
@@ -21,6 +21,19 @@ function nameToAttributes(drivers){
   }
   return newArr
 }
+
+
+function nameToAttributes(drivers){
+  return drivers.map(function(fullName) {const firstName = fullName.split(' ')[0]; const lastName = fullName.split(' ')[1]; return {'firstName':firstName,'lastName':lastName}})
+}
+*/ 
+
+function nameToAttributes(drivers){
+  return drivers.map(function(fullName) {return {'firstName':fullName.split(' ')[0],'lastName':fullName.split(' ')[1]}})
+}
+
+
+
 
 function attributesToPhrase(drivers){
   return drivers.map(function(driver) {return `${driver.name} is from ${driver.hometown}`})
